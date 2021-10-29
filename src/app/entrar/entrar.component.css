@@ -1,0 +1,8 @@
+#img-bg{
+    background-image: url('../../assets/img/waves.jpg');
+    min-height: 100vh;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
