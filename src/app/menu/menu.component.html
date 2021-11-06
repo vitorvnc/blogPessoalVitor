@@ -7,11 +7,11 @@
 
       <ul class="navbar-nav mr-auto d-flex align-items-center">
         <li class="nav-item active">
-          <img src="https://images.contentstack.io/v3/assets/blt187521ff0727be24/blt681f7ae82132de80/60ee1014fdd68748b2b7cd12/odyssey-avatar-yasuo.jpg" 
+          <img src="{{foto}}" 
           alt="Imagem do User" width="50px" height="50px" class="img-fluid rounded-circle">
         </li>
         <li class="nav-item pl-3">
-          <p class="fs-16 m-0 font-weight-bold text-white">Nome do Usuario</p>
+          <p class="fs-16 m-0 font-weight-bold text-white">Olá, {{nome}}</p>
         </li>
 
         <li class="nav-item pl-3">
@@ -23,7 +23,7 @@
 
       <ul class="navbar-nav ml-auto d-flex align-items-center">
         <li class="nav-item pl-3">
-            <a class="fs-16 m-0 font-weight-bold text-white ">Sair <i class="fa fa-sign-out" aria-hidden="true"></i></a>
+            <a (click)='sair()' class="fs-16 m-0 font-weight-bold text-white ">Sair <i class="fa fa-sign-out" aria-hidden="true"></i></a>
         </li>
       </ul>
 
