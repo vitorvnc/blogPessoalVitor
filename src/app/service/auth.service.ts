@@ -1,5 +1,5 @@
 import { UserLoginDTO } from '../model/UserLoginDTO';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaderResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { User } from '../model/User';
@@ -14,6 +14,25 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
+  logado(){
+    let ok: boolean = false
+    
+    if (environment.token != ''){
+      ok = true
+    }
+  }
+
+  token = {
+    headers: new HttpHeaders().set('Authorization', environment.token)
+  }
+
+
+  refreshToken(){
+    this.token = {
+      headers: new HttpHeaders().set('Authorization', environment.token)
+    }
+  }
+
   entrar(credenciais: CredenciaisDTO): Observable<CredenciaisDTO>{
     return this.http.put<CredenciaisDTO>('https://vitorvncblogpessoal.herokuapp.com/usuarios/credenciais', credenciais)
   }
@@ -26,13 +45,10 @@ export class AuthService {
     return this.http.post<User>('https://vitorvncblogpessoal.herokuapp.com/usuarios/salvar', user)
   }
 
-  logado(){
-    let ok: boolean = false
-    
-    if (environment.token != ''){
-      ok = true
-    }
-
-    return ok
+  getByIdUser(id: number): Observable<User>{
+    return this.http.get<User>(`https://vitorvncblogpessoal.herokuapp.com/usuarios/${id}`, this.token)
   }
+
+
 }
+
