@@ -35,14 +35,14 @@ export class InicioComponent implements OnInit {
 
   ngOnInit(){
 
+    this.authService.refreshToken();
     if(environment.token ==''){
      alert('Sua seção expirou, faça o login novamente.')
       this.router.navigate(['/entrar'])
     }
-
     this.getAllTemas()
     this.getAllPostagens()
-    this.authService.refreshToken();
+  
   }
 
   getAllTemas(){
